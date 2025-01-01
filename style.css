@@ -1,0 +1,223 @@
+/* Reset umum */
+body {
+  font-family: "Roboto", sans-serif;
+  background-color: #f8f9fa;
+  margin: 0;
+  padding: 0;
+}
+
+/* Navbar */
+.navbar {
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.navbar-brand {
+  font-weight: bold;
+  font-size: 1.5rem;
+}
+
+.navbar-nav .nav-link {
+  color: white !important;
+  font-size: 1rem;
+  margin-right: 15px;
+}
+
+/* Beranda (Home) */
+.home-background {
+  background-image: url("images/background.jpg"); /* Pastikan file berada di folder images */
+  background-size: cover;
+  background-position: center;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  color: white;
+  text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.7);
+  text-align: center;
+  flex-direction: column;
+  padding: 20px;
+}
+
+.home-background h1 {
+  color: red; /* Warna merah untuk h1 */
+  font-size: 3rem;
+  margin-bottom: 10px;
+}
+
+.home-background p {
+  color: white; /* Warna putih untuk paragraf */
+  font-size: 1.25rem;
+}
+
+/* Save Aspirasi - Halaman Konfirmasi */
+.card {
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.card-body {
+  padding: 40px;
+  text-align: center;
+}
+
+h2.text-success {
+  font-weight: bold;
+  color: #198754;
+  font-size: 2rem;
+}
+
+p.text-muted {
+  font-size: 1.2rem;
+  color: #6c757d;
+}
+
+.btn-lg {
+  padding: 15px 30px;
+  font-size: 1.25rem;
+}
+
+.btn-success {
+  background-color: #198754;
+  border: none;
+  margin-right: 20px;
+}
+
+.btn-success:hover {
+  background-color: #155d40;
+}
+
+.btn-outline-success {
+  border: 2px solid #198754;
+  color: #198754;
+}
+
+.btn-outline-success:hover {
+  background-color: #198754;
+  color: white;
+}
+
+.img-fluid {
+  max-width: 200px;
+  margin-top: 20px;
+}
+
+/* Tabel Daftar Aspirasi */
+.table {
+  margin-top: 20px;
+  border: 1px solid #ddd;
+  background-color: #fff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.table th {
+  background-color: #198754;
+  color: white;
+  text-align: center;
+}
+
+.table td {
+  text-align: center;
+}
+
+/* Form Kirim Aspirasi */
+h2.text-success {
+  font-weight: bold;
+  margin-bottom: 15px;
+}
+
+p.text-muted {
+  margin-bottom: 30px;
+  font-size: 1rem;
+  text-align: center;
+  color: #6c757d;
+}
+
+/* Card Form */
+.card {
+  border: none;
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+}
+
+.card-body {
+  padding: 30px;
+}
+
+.card input,
+.card textarea {
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  padding: 10px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease;
+}
+
+.card input:focus,
+.card textarea:focus {
+  border-color: #198754;
+  outline: none;
+  box-shadow: 0 0 5px rgba(25, 135, 84, 0.5);
+}
+
+/* Tombol */
+.btn-success {
+  background-color: #198754;
+  border: none;
+  padding: 10px 15px;
+  font-size: 1.2rem;
+  font-weight: bold;
+  border-radius: 8px;
+  transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.btn-success:hover {
+  background-color: #155d40;
+  transform: scale(1.05);
+}
+
+.btn-outline-secondary {
+  border: 2px solid #6c757d;
+  color: #6c757d;
+  font-size: 1rem;
+  font-weight: bold;
+  padding: 8px 15px;
+  border-radius: 8px;
+  transition: all 0.3s ease;
+}
+
+.btn-outline-secondary:hover {
+  background-color: #6c757d;
+  color: white;
+  transform: scale(1.05);
+}
+
+/* Footer */
+footer {
+  font-size: 1rem;
+}
+
+footer p {
+  margin: 0;
+  font-weight: bold;
+}
+
+/* Responsivitas */
+@media (max-width: 768px) {
+  h1 {
+    font-size: 2.5rem;
+  }
+
+  p {
+    font-size: 1rem;
+  }
+
+  .card-body {
+    padding: 20px;
+  }
+
+  h2.text-success {
+    font-size: 1.75rem;
+  }
+}

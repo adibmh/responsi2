@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Daftar Aspirasi</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" />
+  </head>
+  <body>
+    <!-- Navbar -->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-success">
+      <div class="container-fluid">
+        <a class="navbar-brand" href="#">Suara Rakyat</a>
+        <ul class="navbar-nav">
+          <li class="nav-item"><a class="nav-link" href="index.html">Beranda</a></li>
+          <li class="nav-item"><a class="nav-link active" href="form.html">Kirim Aspirasi</a></li>
+          <li class="nav-item"><a class="nav-link" href="daftar.html">Daftar Aspirasi</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <!-- Daftar Aspirasi -->
+    <div class="container mt-5">
+      <h2 class="text-success text-center">Daftar Aspirasi</h2>
+      <div class="table-responsive mt-4">
+        <table class="table table-striped" id="aspirasiTable">
+          <thead>
+            <tr>
+              <th>No</th>
+              <th>Nama</th>
+              <th>Email</th>
+              <th>Aspirasi</th>
+              <th>Waktu</th>
+            </tr>
+          </thead>
+          <tbody id="aspirasiForm">
+            <!-- Data akan dimuat di sini -->
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="text-center mt-5 bg-success text-white py-3">
+      <p>&copy; 2024 Suara Rakyat. Semua hak cipta dilindungi.</p>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+      const url = "https://script.google.com/macros/s/AKfycbwt8NGZBNDZ1q4Os-Fv1Qnt4fqLTKqirxcoJeVdALeHvO1iadU_0maO2AOVAgJ1b_En/exec"; // Ganti dengan URL Apps Script Anda
+
+      function formatName(name) {
+        if (!name) return "N/A";
+        return name
+          .split(" ")
+          .map((word) => word.charAt(0).toUpperCase() + ".")
+          .join(" ");
+      }
+
+      function formatEmail(email) {
+        if (!email) return "N/A";
+        const [localPart, domain] = email.split("@");
+        return localPart.charAt(0).toUpperCase() + "****@" + domain;
+      }
+
+      function loadData() {
+        fetch(url)
+          .then((response) => {
+            if (!response.ok) {
+              throw new Error(`HTTP error! status: ${response.status}`);
+            }
+            return response.json();
+          })
+          .then((data) => {
+            const tableBody = document.getElementById("aspirasiForm");
+            tableBody.innerHTML = ""; // Menghapus konten lama
+
+            if (data.length === 0) {
+              tableBody.innerHTML = `<tr><td colspan="5" class="text-center">Tidak ada data tersedia.</td></tr>`;
+              return;
+            }
+
+            data.forEach((item, index) => {
+              const row = `
+              <tr>
+                <td>${index + 1}</td>
+                <td>${formatName(item.name)}</td>
+                <td>${formatEmail(item.email)}</td>
+                <td>${item.aspirasi || "N/A"}</td>
+                <td>${item.timestamp || "N/A"}</td>
+              </tr>`;
+              tableBody.innerHTML += row;
+            });
+          })
+          .catch((error) => {
+            console.error("Error fetching data:", error);
+            const tableBody = document.getElementById("aspirasiForm");
+            tableBody.innerHTML = `<tr><td colspan="5" class="text-center text-danger">Gagal memuat data. Silakan coba lagi nanti.</td></tr>`;
+          });
+      }
+
+      // Muat data saat halaman dibuka
+      document.addEventListener("DOMContentLoaded", loadData);
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
